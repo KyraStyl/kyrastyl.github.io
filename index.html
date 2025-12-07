@@ -4,16 +4,20 @@
   <meta charset="UTF-8" />
   <title>Styliani Kyrama</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Academic homepage of Styliani Kyrama, PhD candidate in Computer Science at Aristotle University of Thessaloniki, working on Complex Event Processing and edge/streaming systems."
+  />
 
   <style>
     :root {
-      --bg: #f7f9fc;
-      --fg: #222;
-      --muted: #6b7280;
-      --accent: #2563eb;
-      --accent-soft: #dbeafe;
-      --border: #e5e7eb;
-      --card: #ffffff;
+      --bg: #0d1117;
+      --card: #161b22;
+      --fg: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: rgba(56, 139, 253, 0.2);
+      --border: #30363d;
     }
 
     * {
@@ -24,7 +28,7 @@
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background: var(--bg);
+      background: radial-gradient(circle at top left, #111827 0, #02040a 55%);
       color: var(--fg);
       line-height: 1.6;
     }
@@ -58,10 +62,11 @@
       background: var(--card);
       border-radius: 16px;
       padding: 24px 24px 28px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
       text-align: center;
       position: sticky;
       top: 24px;
+      border: 1px solid var(--border);
     }
 
     .right-column {
@@ -69,7 +74,8 @@
       background: var(--card);
       border-radius: 16px;
       padding: 28px 26px 32px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border);
     }
 
     /* Left column content */
@@ -80,7 +86,8 @@
       border-radius: 50%;
       overflow: hidden;
       margin: 0 auto 18px;
-      border: 4px solid var(--accent-soft);
+      border: 3px solid var(--accent-soft);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     }
 
     .avatar-wrapper img {
@@ -93,24 +100,29 @@
     .name {
       font-size: 1.6rem;
       font-weight: 700;
-      margin: 4px 0 2px;
+      margin: 4px 0 4px;
     }
 
     .title {
       font-size: 0.98rem;
       font-weight: 500;
       color: var(--muted);
-      margin-bottom: 16px;
+      margin-bottom: 10px;
     }
 
     .affiliation {
       font-size: 0.9rem;
       color: var(--muted);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
+    }
+
+    .affiliation strong {
+      color: var(--fg);
+      font-weight: 600;
     }
 
     .link-row {
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       font-size: 0.9rem;
     }
 
@@ -121,7 +133,7 @@
 
     .cv-button {
       display: inline-block;
-      margin: 8px 0 18px;
+      margin: 8px 0 14px;
       padding: 7px 14px;
       border-radius: 999px;
       border: 1px solid var(--accent);
@@ -129,7 +141,8 @@
       font-weight: 500;
       text-decoration: none;
       color: var(--accent);
-      background: #ffffff;
+      background: transparent;
+      backdrop-filter: blur(10px);
     }
 
     .cv-button:hover {
@@ -153,16 +166,18 @@
 
     .section-nav a {
       margin-right: 10px;
-      padding: 4px 8px;
+      padding: 4px 10px;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent);
       text-decoration: none;
+      border: 1px solid transparent;
     }
 
     .section-nav a:hover {
-      background: var(--accent);
-      color: white;
+      background: transparent;
+      border-color: var(--accent-soft);
+      color: var(--fg);
     }
 
     h2.section-title {
@@ -173,13 +188,20 @@
       padding-bottom: 4px;
     }
 
+    h3 {
+      margin: 10px 0 4px;
+      font-size: 1.02rem;
+    }
+
     p {
       margin: 0 0 10px;
     }
 
     .pub-list,
     .proj-list,
-    .teach-list {
+    .teach-list,
+    .exp-list,
+    .edu-list {
       list-style: none;
       padding-left: 0;
       margin: 0;
@@ -187,13 +209,21 @@
 
     .pub-item,
     .proj-item,
-    .teach-item {
+    .teach-item,
+    .exp-item,
+    .edu-item {
       margin-bottom: 12px;
     }
 
     .pub-title,
-    .proj-title {
+    .proj-title,
+    .item-title {
       font-weight: 600;
+    }
+
+    .item-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
     }
 
     .tag {
@@ -222,6 +252,15 @@
       margin-top: 26px;
       font-size: 0.8rem;
       color: var(--muted);
+    }
+
+    code {
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo,
+        Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.83rem;
+      background: rgba(148, 163, 184, 0.1);
+      padding: 2px 5px;
+      border-radius: 4px;
     }
 
     /* Responsive */
@@ -266,29 +305,30 @@
         </div>
 
         <div class="name">Styliani Kyrama</div>
-        <div class="title">PhD Student · Computer Science</div>
+        <div class="title">PhD Candidate · Computer Science</div>
         <div class="affiliation">
-          Complex Event Processing<br />
-          <!-- e.g. University / Institute name -->
-          <span style="opacity:0.8;">[Your institution here]</span>
+          <strong>Complex Event Processing</strong><br />
+          Aristotle University of Thessaloniki (AUTH)<br />
+          Department of Informatics · Data &amp; Web Science Lab (Datalab)
         </div>
 
         <div class="link-row">
-          <a href="cv.pdf" class="cv-button">Download CV</a>
+          <a href="cv.pdf" class="cv-button">Download CV (PDF)</a>
         </div>
 
         <div class="link-row">
-          <strong>Links:</strong>
+          <strong>Profiles:</strong>
           <a href="https://orcid.org/0000-0002-5592-8506">ORCID</a> ·
           <a href="https://www.linkedin.com/in/styliani-kyrama/">LinkedIn</a> ·
-          <a href="https://www.researchgate.net/profile/Styliani_Kyrama?ev=prf_overview">ResearchGate</a>
+          <a href="https://www.researchgate.net/profile/Styliani_Kyrama?ev=prf_overview">ResearchGate</a> ·
+          <a href="https://github.com/KyraStyl">GitHub</a>
         </div>
 
         <p class="short-bio">
-          I am a PhD student in Computer Science focusing on
-          <strong>Complex Event Processing</strong>. My research interests
-          include real-time data streams, event pattern detection, and
-          systems for large-scale event analytics.
+          I am a PhD candidate in Computer Science at Aristotle University of Thessaloniki,
+          focusing on <strong>Complex Event Processing (CEP)</strong> and streaming systems.
+          My research explores hybrid CEP engines, out-of-order and late event handling, and
+          edge deployments under resource constraints.
         </p>
       </aside>
 
@@ -297,6 +337,8 @@
         <!-- Small navigation chips -->
         <div class="section-nav">
           <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Experience</a>
           <a href="#publications">Publications</a>
           <a href="#projects">Projects</a>
           <a href="#teaching">Teaching</a>
@@ -308,54 +350,253 @@
         <section id="about">
           <h2 class="section-title">About</h2>
           <p>
-            I am a PhD candidate in Computer Science working on
-            <strong>Complex Event Processing (CEP)</strong>. My work explores
-            how to efficiently detect, reason about, and react to patterns in
-            high-volume data streams in real time.
+            I am a PhD candidate in the Department of Informatics at
+            Aristotle University of Thessaloniki (AUTH), working with the
+            Data &amp; Web Science Lab (Datalab). My research focuses on
+            <strong>Complex Event Processing (CEP)</strong>, especially on
+            hybrid execution engines, efficient pattern detection in demanding
+            streaming scenarios, and <strong>edge deployments</strong> with limited resources.
           </p>
           <p>
-            More details about your current position, group, supervisors, or
-            research lab can go here. You can also briefly mention any
-            application domains (e.g., IoT, finance, smart cities, etc.).
+            I am particularly interested in out-of-order and late event handling, speculative and
+            lazy evaluation strategies, and systems that combine <em>high throughput</em> with
+            <em>low latency</em> under real-world data streams. My work spans both theoretical
+            aspects of event processing and practical system development, using technologies such
+            as Kafka, PySpark, Docker, and modern edge/cloud infrastructures.
           </p>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education">
+          <h2 class="section-title">Education</h2>
+          <ul class="edu-list">
+            <li class="edu-item">
+              <div class="item-title">
+                PhD in Computer Science
+                <span class="tag">2022–present</span>
+              </div>
+              <div class="item-meta">
+                Department of Informatics, Aristotle University of Thessaloniki (AUTH)
+              </div>
+              <p>
+                <strong>Thesis topic:</strong> Complex Event Processing.<br />
+                Research on hybrid CEP engines and event pattern detection in demanding
+                streaming and edge environments.
+              </p>
+            </li>
+
+            <li class="edu-item">
+              <div class="item-title">
+                MSc in Data and Web Science
+                <span class="tag">2020–2022</span>
+              </div>
+              <div class="item-meta">
+                Department of Informatics, Aristotle University of Thessaloniki (AUTH) · Grade: 9.7/10
+              </div>
+              <p>
+                <strong>Dissertation:</strong> Complex event processing in resource-constrained environments.<br />
+                Combination of two CEP systems (SASE and CET) into a single hybrid engine designed
+                to operate efficiently on devices with limited resources.
+              </p>
+            </li>
+
+            <li class="edu-item">
+              <div class="item-title">
+                BSc in Informatics
+                <span class="tag">2016–2020</span>
+              </div>
+              <div class="item-meta">
+                Department of Informatics, Aristotle University of Thessaloniki (AUTH) · Grade: 8.43/10
+              </div>
+              <p>
+                <strong>Thesis:</strong> Comparative study of systems for Complex Event Processing.<br />
+                Evaluation of SASE and Apache Flink in terms of throughput for pattern queries
+                over a known data stream.
+              </p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience">
+          <h2 class="section-title">Research Experience</h2>
+          <ul class="exp-list">
+            <li class="exp-item">
+              <div class="item-title">
+                Research Assistant · Data &amp; Web Science Lab (Datalab)
+                <span class="tag">TRINEFLEX Horizon Europe</span>
+              </div>
+              <div class="item-meta">
+                ELKE AUTH · 07/2023 – 12/2024
+              </div>
+              <p>
+                Development of technologies supporting data processing for industrial pilots,
+                focusing on storage and processing pipelines for energy-flexible processes.
+                Worked with Docker, MinIO/S3, Delta Lake, PySpark, Flask, and SQLite to design
+                and implement robust data ingestion and analytics infrastructure.
+              </p>
+            </li>
+
+            <li class="exp-item">
+              <div class="item-title">
+                Research Assistant · Data &amp; Web Science Lab (Datalab)
+                <span class="tag">LIFECHAMPS Horizon 2020</span>
+              </div>
+              <div class="item-meta">
+                ELKE AUTH · 12/2020 – 02/2022
+              </div>
+              <p>
+                Development of techniques for <strong>High Performance Computing (HPC)</strong> and
+                implementation of an edge analytics system as part of a platform for cancer patient support.
+                Designed an edge component to receive, transform, and analyze patient data before forwarding
+                to the cloud, using Docker, Spring Boot, MQTT, and edge-computing architectures.
+              </p>
+            </li>
+          </ul>
         </section>
 
         <!-- PUBLICATIONS -->
         <section id="publications">
           <h2 class="section-title">Publications</h2>
           <ul class="pub-list">
-            <!-- Example item – replace with your own -->
             <li class="pub-item">
-              <span class="pub-title">[Paper Title]</span>
+              <span class="pub-title">
+                Complex Event Processing: current status and considerations for edge deployment.
+              </span>
               <br />
-              S. Kyrama, Coauthor Name, Another Name.
-              <em>Conference / Journal Name</em>, Year.
-              <a href="#">PDF</a> · <a href="#">DOI</a>
+              S. Kyrama, A. Gounaris.
+              <em>Future Generation Computer Systems</em>, 2025 (to appear).
               <span class="tag">CEP</span>
+              <span class="tag">Edge Computing</span>
             </li>
 
-            <!-- Add more <li> elements for each publication -->
+            <li class="pub-item">
+              <span class="pub-title">
+                Exploring alternatives of Complex Event Processing execution engines in demanding cases.
+              </span>
+              <br />
+              S. Kyrama, A. Gounaris.
+              In <em>Proceedings of the 38th ACM/SIGAPP Symposium on Applied Computing (SAC 2023)</em>,
+              Tallinn, Estonia, pp. 313–320, 2023.
+              <span class="tag">Streaming Systems</span>
+              <span class="tag">CEP Engines</span>
+            </li>
+
+            <li class="pub-item">
+              <span class="pub-title">
+                Scalable real-time health data sensing and analysis enabling collaborative care delivery.
+              </span>
+              <br />
+              I. Dimitriadis, I. Mavroudopoulos, S. Kyrama, T. Toliopoulos, A. Gounaris, A. Vakali,
+              P. Bamidis, <em>et al.</em><br />
+              <em>Social Network Analysis and Mining</em>, 12(1):1–22, 2022.
+              <span class="tag">Health Data</span>
+              <span class="tag">Real-time Analytics</span>
+            </li>
+
+            <li class="pub-item">
+              <span class="pub-title">
+                QlicK: An interactive multimedia content creation tool.
+              </span>
+              <br />
+              A. Volakakis, N. Tazes, S. Tzivinikou, S. Kyrama.<br />
+              In <em>Proceedings of the 14th Panhellenic Conference with International Participation
+              “ICT in Education”</em>, University of the Aegean, Rhodes, pp. 591–600, 2025.
+              <span class="tag">Educational Technology</span>
+              <span class="tag">Multimedia</span>
+            </li>
           </ul>
         </section>
 
         <!-- PROJECTS -->
         <section id="projects">
-          <h2 class="section-title">Projects</h2>
+          <h2 class="section-title">Selected Projects</h2>
           <ul class="proj-list">
             <li class="proj-item">
-              <span class="proj-title">[Project Name]</span>
-              <span class="tag">Research</span>
+              <span class="proj-title">LimeCEP: Hybrid Complex Event Processing Engine for Edge Environments</span>
+              <span class="tag">CEP</span>
+              <span class="tag">Edge</span>
+              <span class="tag">Kafka</span>
               <br />
-              Short description of the project, the problem you address, and
-              your contribution. Optionally add links:
-              <a href="#">code</a> · <a href="#">demo</a>
+              Development of <strong>LimeCEP</strong>, a hybrid CEP engine for edge settings that combines lazy
+              evaluation, speculative processing, and buffer-based techniques to handle out-of-order, late,
+              and duplicate events while maintaining high accuracy and low latency on real streams with
+              inconsistencies.
+              <br />
+              <span class="item-meta">
+                GitHub: <a href="https://github.com/KyraStyl">repository link (LimeCEP)</a> <!-- adjust if you have a direct repo -->
+              </span>
             </li>
 
             <li class="proj-item">
-              <span class="proj-title">[Project Name]</span>
-              <span class="tag">Teaching tool</span>
+              <span class="proj-title">TRINEFLEX: Distributed Energy Storage Matchmaking & Networking Infrastructure</span>
+              <span class="tag">Horizon Europe</span>
+              <span class="tag">Energy</span>
               <br />
-              Another project description.
+              Implementation of the core infrastructure for an intelligent stakeholders matchmaking and
+              networking system, focusing on data processing, inter-service communication, and integration
+              with BPM orchestrator (Camunda) and a Distributed Ledger (Hyperledger Fabric). Backend
+              developed in Python (Flask REST API) with a PySpark/Delta Lake storage layer over MinIO (S3),
+              and containerised with Docker.
+            </li>
+
+            <li class="proj-item">
+              <span class="proj-title">SASEXT: Hybrid Complex Event Processing Engine (ACM SAC 2023)</span>
+              <span class="tag">CEP</span>
+              <span class="tag">Hybrid Automata</span>
+              <br />
+              Design and implementation of <strong>SASEXT</strong>, a hybrid CEP mechanism targeting efficient
+              detection of Kleene patterns in demanding streaming environments. The system uses a lazy,
+              hash-enhanced automata algorithm to significantly reduce memory usage and latency compared
+              to traditional NFAs and CET engines, with support for time windows and expired event handling.
+            </li>
+
+            <li class="proj-item">
+              <span class="proj-title">Edge Analytics Engine for Health Data</span>
+              <span class="tag">Edge Computing</span>
+              <span class="tag">HPC</span>
+              <br />
+              Edge system that receives patient data from various services, performs transformations and
+              analytics, and forwards results to a cloud component. Implemented a REST API with Spring Boot,
+              applied data transformations into a unified format, and packaged the service with Docker for
+              ARM64 (e.g., Raspberry Pi).
+            </li>
+
+            <li class="proj-item">
+              <span class="proj-title">Hybrid CEP Engine (SASE + CET)</span>
+              <span class="tag">Hybrid CEP</span>
+              <span class="tag">Raspberry Pi</span>
+              <br />
+              Unified engine that combines SASE and CET for CEP workloads, extended with new data types and
+              sliding window support. Evaluated memory usage, CPU utilization, total execution time, and
+              detection latency, demonstrating robust performance even in resource-constrained environments
+              such as Raspberry Pi devices.
+              <br />
+              <span class="item-meta">
+                GitHub: <a href="https://github.com/KyraStyl/Hybrid_CEP_Engine">Hybrid_CEP_Engine</a>
+              </span>
+            </li>
+
+            <li class="proj-item">
+              <span class="proj-title">Comparative Study of SASE and Apache Flink for CEP</span>
+              <span class="tag">CEP</span>
+              <span class="tag">Apache Flink</span>
+              <br />
+              Comparative analysis of SASE and FlinkCEP, including implementation of pattern queries,
+              examination of available strategies, and throughput evaluation under different query conditions.
+              <br />
+              <span class="item-meta">
+                GitHub: <a href="https://github.com/KyraStyl/CEP_with_Apache_Flink">CEP_with_Apache_Flink</a>
+              </span>
+            </li>
+
+            <li class="proj-item">
+              <span class="proj-title">Frontend for a Cybersecurity Tool</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Web UI</span>
+              <br />
+              Development of a JavaScript-based frontend for a cybersecurity tool, using HTML and CSS to
+              create interactive visual interfaces for security-related functionality.
             </li>
           </ul>
         </section>
@@ -363,27 +604,22 @@
         <!-- TEACHING -->
         <section id="teaching">
           <h2 class="section-title">Teaching</h2>
-          <ul class="teach-list">
-            <li class="teach-item">
-              <strong>[Course Code] Course Title</strong>,
-              [University], [Semester, Year].<br />
-              Role: Teaching Assistant / Instructor. Brief description of
-              your duties or material you helped develop.
-            </li>
-            <!-- Add more items as needed -->
-          </ul>
+          <p>
+            Teaching activities are currently limited and associated with research projects and lab work.
+            A detailed list of courses and teaching roles will be added here as they become available.
+          </p>
         </section>
 
         <!-- CV -->
         <section id="cv">
-          <h2 class="section-title">CV</h2>
+          <h2 class="section-title">Curriculum Vitae</h2>
           <p>
             You can download my full CV here:
             <a href="cv.pdf">CV (PDF)</a>.
           </p>
           <p>
-            Optionally include a short summary of your education and positions
-            here for a quick overview.
+            The CV includes additional details on coursework, responsibilities within research projects,
+            skills, and other activities.
           </p>
         </section>
 
@@ -391,25 +627,42 @@
         <section id="contact">
           <h2 class="section-title">Contact</h2>
           <ul class="contact-list">
-            <li>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
-            <li>ORCID:
+            <li>
+              Email (academic):
+              <a href="mailto:kyrastyl@csd.auth.gr">kyrastyl@csd.auth.gr</a>
+            </li>
+            <li>
+              Email (personal):
+              <a href="mailto:stellakyrama@outlook.com.gr">stellakyrama@outlook.com.gr</a>
+            </li>
+            <li>
+              Phone: <a href="tel:+306977628464">+30 697 762 8464</a>
+            </li>
+            <li>
+              ORCID:
               <a href="https://orcid.org/0000-0002-5592-8506">0000-0002-5592-8506</a>
             </li>
-            <li>LinkedIn:
+            <li>
+              LinkedIn:
               <a href="https://www.linkedin.com/in/styliani-kyrama/">
                 linkedin.com/in/styliani-kyrama
               </a>
             </li>
-            <li>ResearchGate:
+            <li>
+              ResearchGate:
               <a href="https://www.researchgate.net/profile/Styliani_Kyrama?ev=prf_overview">
                 researchgate.net/profile/Styliani_Kyrama
               </a>
+            </li>
+            <li>
+              GitHub:
+              <a href="https://github.com/KyraStyl">github.com/KyraStyl</a>
             </li>
           </ul>
         </section>
 
         <footer>
-          Last updated: <!-- you can update this manually --> March 2025
+          Last updated: March 2025
         </footer>
       </main>
     </div>
