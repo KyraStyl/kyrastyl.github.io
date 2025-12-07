@@ -328,7 +328,7 @@
           I am a PhD candidate in Computer Science at Aristotle University of Thessaloniki,
           focusing on <strong>Complex Event Processing (CEP)</strong> and streaming systems.
           My research explores hybrid CEP engines, out-of-order and late event handling, and
-          edge deployments under resource constraints.
+          deployments under constrained resources.
         </p>
       </aside>
 
@@ -336,18 +336,18 @@
       <main class="right-column">
         <!-- Small navigation chips -->
         <div class="section-nav">
-          <a href="#about">About</a>
+          <!-- <a href="#about">About</a> -->
           <a href="#education">Education</a>
           <a href="#experience">Experience</a>
           <a href="#publications">Publications</a>
           <a href="#projects">Projects</a>
           <a href="#teaching">Teaching</a>
-          <a href="#cv">CV</a>
+          <!-- <a href="#cv">CV</a> -->
           <a href="#contact">Contact</a>
         </div>
 
         <!-- ABOUT -->
-        <section id="about">
+        <!-- <section id="about">
           <h2 class="section-title">About</h2>
           <p>
             I am a PhD candidate in the Department of Informatics at
@@ -364,7 +364,7 @@
             aspects of event processing and practical system development, using technologies such
             as Kafka, PySpark, Docker, and modern edge/cloud infrastructures.
           </p>
-        </section>
+        </section> -->
 
         <!-- EDUCATION -->
         <section id="education">
@@ -395,8 +395,8 @@
               </div>
               <p>
                 <strong>Dissertation:</strong> Complex event processing in resource-constrained environments.<br />
-                Combination of two CEP systems (SASE and CET) into a single hybrid engine designed
-                to operate efficiently on devices with limited resources.
+                A combination of two CEP systems (SASE and CET) into a single hybrid engine designed
+                to operate efficiently on devices with limited resources. [pdf](https://ikee.lib.auth.gr/record/338631/files/GRI-2022-34574.pdf)
               </p>
             </li>
 
@@ -411,7 +411,7 @@
               <p>
                 <strong>Thesis:</strong> Comparative study of systems for Complex Event Processing.<br />
                 Evaluation of SASE and Apache Flink in terms of throughput for pattern queries
-                over a known data stream.
+                over a known data stream. [pdf](https://ikee.lib.auth.gr/record/321190/files/KyramaStyliani.pdf)
               </p>
             </li>
           </ul>
@@ -433,7 +433,7 @@
                 Development of technologies supporting data processing for industrial pilots,
                 focusing on storage and processing pipelines for energy-flexible processes.
                 Worked with Docker, MinIO/S3, Delta Lake, PySpark, Flask, and SQLite to design
-                and implement robust data ingestion and analytics infrastructure.
+                and implement a robust data ingestion and analytics infrastructure.
               </p>
             </li>
 
@@ -447,7 +447,7 @@
               </div>
               <p>
                 Development of techniques for <strong>High Performance Computing (HPC)</strong> and
-                implementation of an edge analytics system as part of a platform for cancer patient support.
+                Implementation of an edge analytics engine as part of a platform for cancer patient support.
                 Designed an edge component to receive, transform, and analyze patient data before forwarding
                 to the cloud, using Docker, Spring Boot, MQTT, and edge-computing architectures.
               </p>
@@ -461,18 +461,18 @@
           <ul class="pub-list">
             <li class="pub-item">
               <span class="pub-title">
-                Complex Event Processing: current status and considerations for edge deployment.
+                [Complex Event Processing: current status and considerations for edge deployment.](https://www.sciencedirect.com/science/article/pii/S0167739X25005412?via%3Dihub)
               </span>
               <br />
               S. Kyrama, A. Gounaris.
-              <em>Future Generation Computer Systems</em>, 2025 (to appear).
+              <em>Future Generation Computer Systems</em>, 177C, April 2026.
               <span class="tag">CEP</span>
               <span class="tag">Edge Computing</span>
             </li>
 
             <li class="pub-item">
               <span class="pub-title">
-                Exploring alternatives of Complex Event Processing execution engines in demanding cases.
+                [Exploring alternatives of Complex Event Processing execution engines in demanding cases.](https://dl.acm.org/doi/10.1145/3555776.3577734)
               </span>
               <br />
               S. Kyrama, A. Gounaris.
@@ -484,7 +484,7 @@
 
             <li class="pub-item">
               <span class="pub-title">
-                Scalable real-time health data sensing and analysis enabling collaborative care delivery.
+                [Scalable real-time health data sensing and analysis enabling collaborative care delivery.](https://link.springer.com/article/10.1007/s13278-022-00891-y)
               </span>
               <br />
               I. Dimitriadis, I. Mavroudopoulos, S. Kyrama, T. Toliopoulos, A. Gounaris, A. Vakali,
@@ -496,7 +496,7 @@
 
             <li class="pub-item">
               <span class="pub-title">
-                QlicK: An interactive multimedia content creation tool.
+                [QlicK: An interactive multimedia content creation tool.](https://www.etpe.gr/wp-content/uploads/2025/11/%CE%989-4-49.pdf)
               </span>
               <br />
               A. Volakakis, N. Tazes, S. Tzivinikou, S. Kyrama.<br />
@@ -577,7 +577,7 @@
               </span>
             </li>
 
-            <li class="proj-item">
+            <!-- <li class="proj-item">
               <span class="proj-title">Comparative Study of SASE and Apache Flink for CEP</span>
               <span class="tag">CEP</span>
               <span class="tag">Apache Flink</span>
@@ -588,7 +588,7 @@
               <span class="item-meta">
                 GitHub: <a href="https://github.com/KyraStyl/CEP_with_Apache_Flink">CEP_with_Apache_Flink</a>
               </span>
-            </li>
+            </li> -->
 
             <li class="proj-item">
               <span class="proj-title">Frontend for a Cybersecurity Tool</span>
@@ -604,10 +604,16 @@
         <!-- TEACHING -->
         <section id="teaching">
           <h2 class="section-title">Teaching</h2>
-          <p>
-            Teaching activities are currently limited and associated with research projects and lab work.
-            A detailed list of courses and teaching roles will be added here as they become available.
-          </p>
+          <ul class="teach-list">
+            <li class="teach-item">
+              <strong>Teaching Assistant · Object-Oriented Programming (NCO-03-04)</strong>
+              <span class="tag">Winter 2024–2025</span><br />
+              Department of Informatics, Aristotle University of Thessaloniki (AUTH)<br />
+              Supported the laboratory component of the undergraduate course 
+              <em>Object-Oriented Programming (NCO-03-04)</em>. 
+              Responsible instructors: Prof. Georgios Meditskos and Prof. Grigorios Tsoumakas.
+            </li>
+          </ul>
         </section>
 
         <!-- CV -->
